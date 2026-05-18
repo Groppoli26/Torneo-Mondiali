@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Torneo Groppoli Mondiali 26</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --verde: #1a6b3a;
+      --verde-chiaro: #2d9e57;
+      --oro: #e8c547;
+      --nero: #0d0d0d;
+      --grigio: #1c1c1c;
+      --testo: #f0f0e8;
+      --testo-soft: #a8a89a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--nero);
+      color: var(--testo);
+      font-family: 'Barlow', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--verde);
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg, transparent, transparent 20px,
+        rgba(0,0,0,0.08) 20px, rgba(0,0,0,0.08) 40px
+      );
+    }
+    .header-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 32px;
+      text-align: center;
+    }
+    .header-inner h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      letter-spacing: 0.04em;
+      color: #fff;
+      text-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+      line-height: 1;
+    }
+    .header-inner h1 span { color: var(--oro); }
+    .header-inner p {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* NAV */
+    nav {
+      background: var(--grigio);
+      border-bottom: 2px solid var(--verde);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    nav ul li a {
+      display: block;
+      padding: 14px 22px;
+      color: var(--testo-soft);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      transition: color 0.2s, background 0.2s;
+    }
+    nav ul li a:hover {
+      color: var(--oro);
+      background: rgba(255,255,255,0.04);
+    }
+
+    /* MAIN */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+    }
+    section { margin-bottom: 52px; }
+    section h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.06em;
+      color: var(--oro);
+      border-left: 4px solid var(--verde-chiaro);
+      padding-left: 14px;
+      margin-bottom: 20px;
+    }
+
+    /* DOWNLOAD BANNER */
+    .download-banner {
+      background: linear-gradient(135deg, #1a4a28 0%, #0d2e18 100%);
+      border: 2px solid var(--oro);
+      border-radius: 6px;
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 52px;
+      box-shadow: 0 0 30px rgba(232, 197, 71, 0.15);
+    }
+    .download-banner-testo h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.7rem;
+      letter-spacing: 0.06em;
+      color: var(--oro);
+      line-height: 1.1;
+    }
+    .download-banner-testo p {
+      color: var(--testo-soft);
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+    .download-banner-testo p strong {
+      color: var(--testo);
+    }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      background: var(--oro);
+      color: #0d0d0d;
+      text-decoration: none;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      border-radius: 4px;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .btn-download:hover {
+      background: #f5d45a;
+      transform: translateY(-2px);
+    }
+    .btn-download .icona {
+      font-size: 1.4rem;
+    }
+
+    /* NEWS BOX */
+    .news-box {
+      background: var(--grigio);
+      border: 1px solid #2a2a2a;
+      border-left: 4px solid var(--verde-chiaro);
+      padding: 20px 24px;
+      border-radius: 2px;
+      margin-bottom: 16px;
+    }
+    .news-box .data {
+      font-size: 0.75rem;
+      color: var(--testo-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+    .news-box p { color: var(--testo); font-size: 0.97rem; }
+
+    /* CONTATTI ROW */
+    .contatti-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 4px;
+    }
+    .contatti-row a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border: 1px solid #2a2a2a;
+      border-radius: 3px;
+      color: var(--testo);
+      text-decoration: none;
+      font-size: 0.88rem;
+      background: var(--grigio);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .contatti-row a:hover {
+      border-color: var(--verde-chiaro);
+      color: var(--verde-chiaro);
+    }
+
+    /* AMARCORD */
+    .amarcord-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 12px;
+    }
+    .amarcord-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--grigio);
+      border: 1px solid #2a2a2a;
+      border-radius: 3px;
+      padding: 18px 10px 14px;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.15s, background 0.2s;
+      gap: 5px;
+    }
+    .amarcord-item:hover {
+      border-color: var(--oro);
+      background: #222;
+      transform: translateY(-3px);
+    }
+    .amarcord-item .anno {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem;
+      color: var(--oro);
+      line-height: 1;
+    }
+    .amarcord-item .tipo {
+      font-size: 0.68rem;
+      color: var(--testo-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-align: center;
+    }
+    .amarcord-item .paese {
+      font-size: 0.78rem;
+      color: var(--testo);
+      text-align: center;
+      margin-top: 2px;
+    }
+    .amarcord-item.corrente {
+      border-color: var(--verde-chiaro);
+      background: #1a2a1e;
+    }
+    .amarcord-item.corrente .anno { color: var(--verde-chiaro); }
+    .amarcord-item.corrente .tipo { color: var(--verde-chiaro); }
+    .amarcord-nota {
+      margin-top: 16px;
+      font-size: 0.82rem;
+      color: var(--testo-soft);
+      font-style: italic;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--grigio);
+      border-top: 2px solid var(--verde);
+      text-align: center;
+      padding: 24px;
+      font-size: 0.8rem;
+      color: var(--testo-soft);
+    }
+    footer a { color: var(--verde-chiaro); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 560px) {
+      .download-banner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <h1>Torneo Groppoli <span>Mondiali 26</span></h1>
+      <p>11 Giugno – 19 Luglio 2026 &nbsp;·&nbsp; USA · Canada · Messico</p>
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="classifiche.html">Classifiche</a></li>
+      <li><a href="pronostici.html">Pronostici</a></li>
+      <li><a href="regolamento.html">Regolamento</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- DOWNLOAD BANNER -->
+    <div class="download-banner">
+      <div class="download-banner-testo">
+        <h3>📊 Tabellone Mondiali 2026</h3>
+        <p>Il file Excel ufficiale del torneo con <strong>tutti i gironi, le partite e il tabellone eliminatorio</strong>.<br>
+        Scaricalo, compilalo con i tuoi pronostici e seguilo durante tutto il torneo!</p>
+      </div>
+      <a href="WCup_2026_Groppoli.xlsx" download class="btn-download">
+        <span class="icona">⬇️</span> Scarica il file Excel
+      </a>
+    </div>
+
+    <!-- NEWS -->
+    <section id="news">
+      <h2>News</h2>
+      <div class="news-box">
+        <div class="data">Maggio 2026</div>
+        <p>Il sito è online! Il torneo inizia l'11 giugno 2026 con la partita inaugurale del Messico. Le iscrizioni sono aperte: scrivici via mail o sul gruppo Facebook.</p>
+      </div>
+      <div class="news-box">
+        <div class="data">In attesa</div>
+        <p>Classifiche e pronostici saranno pubblicati non appena le iscrizioni saranno chiuse e il torneo avrà inizio.</p>
+      </div>
+    </section>
+
+    <!-- LINK UTILI -->
+    <section id="link">
+      <h2>Link Utili</h2>
+      <div class="contatti-row">
+        <a href="https://www.fifa.com/fifaplus/it/tournaments/mens/worldcup/canadamexicousa2026" target="_blank">🌐 Sito ufficiale FIFA 2026</a>
+        <a href="https://www.gazzetta.it/Calcio/Mondiali/" target="_blank">📰 Risultati Gazzetta</a>
+        <a href="regolamento.html">📄 Regolamento Torneo</a>
+      </div>
+    </section>
+
+    <!-- AMARCORD -->
+    <section id="amarcord">
+      <h2>Amarcord</h2>
+      <div class="amarcord-grid">
+
+        <a href="https://digilander.libero.it/mondiali_2006/Indice.htm" target="_blank" class="amarcord-item">
+          <span class="anno">2006</span>
+          <span class="tipo">Mondiali</span>
+          <span class="paese">Germania</span>
+        </a>
+
+        <a href="https://digilander.libero.it/torneoeuropeo2008/" target="_blank" class="amarcord-item">
+          <span class="anno">2008</span>
+          <span class="tipo">Europei</span>
+          <span class="paese">Austria/Svizzera</span>
+        </a>
+
+        <a href="https://digilander.libero.it/groppoli2010/" target="_blank" class="amarcord-item">
+          <span class="anno">2010</span>
+          <span class="tipo">Mondiali</span>
+          <span class="paese">Sudafrica</span>
+        </a>
+
+        <a href="https://sciamau.wixsite.com/groppoli2014" target="_blank" class="amarcord-item">
+          <span class="anno">2014</span>
+          <span class="tipo">Mondiali</span>
+          <span class="paese">Brasile</span>
+        </a>
+
+        <a href="https://sciamau.wixsite.com/groppoli2016" target="_blank" class="amarcord-item">
+          <span class="anno">2016</span>
+          <span class="tipo">Europei</span>
+          <span class="paese">Francia</span>
+        </a>
+
+        <a href="https://sciamau.wixsite.com/groppolirussia2018" target="_blank" class="amarcord-item">
+          <span class="anno">2018</span>
+          <span class="tipo">Mondiali</span>
+          <span class="paese">Russia</span>
+        </a>
+
+        <a href="https://sciamau.wixsite.com/europei21" target="_blank" class="amarcord-item">
+          <span class="anno">2021</span>
+          <span class="tipo">Europei</span>
+          <span class="paese">Europa</span>
+        </a>
+
+        <a href="https://sciamau.wixsite.com/website-2" target="_blank" class="amarcord-item">
+          <span class="anno">2022</span>
+          <span class="tipo">Mondiali</span>
+          <span class="paese">Qatar</span>
+        </a>
+
+        <a href="https://sciamau.wixsite.com/ilmiosito-1" target="_blank" class="amarcord-item">
+          <span class="anno">2024</span>
+          <span class="tipo">Europei</span>
+          <span class="paese">Germania</span>
+        </a>
+
+        <a href="index.html" class="amarcord-item corrente">
+          <span class="anno">2026</span>
+          <span class="tipo">Mondiali ★</span>
+          <span class="paese">USA/Can/Mex</span>
+        </a>
+
+      </div>
+      <p class="amarcord-nota">Le edizioni 2006, 2008 e 2010 sono su Digilander e potrebbero non essere sempre raggiungibili.</p>
+    </section>
+
+    <!-- CONTATTI -->
+    <section id="contatti">
+      <h2>Contatti</h2>
+      <div class="contatti-row">
+        <a href="mailto:torneogroppoli24@gmail.com">✉️ torneogroppoli24@gmail.com</a>
+        <a href="https://www.facebook.com/groups/992670802009757" target="_blank">👥 Gruppo Facebook</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Torneo Groppoli Mondiali 26 &nbsp;·&nbsp; dal 2006 con passione &nbsp;·&nbsp;
+      <a href="mailto:torneogroppoli24@gmail.com">torneogroppoli24@gmail.com</a>
+    </p>
+  </footer>
+
+</body>
+</html>
