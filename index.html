@@ -294,8 +294,64 @@
     footer a { color: var(--verde-chiaro); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
+    /* COUNTDOWN */
+    .countdown-box {
+      background: linear-gradient(135deg, #0d2e18 0%, #1a1a1a 100%);
+      border: 2px solid var(--verde-chiaro);
+      border-radius: 6px;
+      padding: 24px 32px;
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .countdown-box h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.1em;
+      color: var(--testo-soft);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .countdown-grid {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .countdown-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid #2a2a2a;
+      border-radius: 4px;
+      padding: 14px 20px;
+      min-width: 80px;
+    }
+    .countdown-unit .numero {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      color: var(--verde-chiaro);
+      line-height: 1;
+    }
+    .countdown-unit .etichetta {
+      font-size: 0.7rem;
+      color: var(--testo-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-top: 4px;
+    }
+    .countdown-scaduto {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      color: #e84747;
+      letter-spacing: 0.08em;
+      display: none;
+    }
+
     @media (max-width: 560px) {
       .download-banner { flex-direction: column; align-items: flex-start; }
+      .countdown-unit { min-width: 60px; padding: 10px 12px; }
+      .countdown-unit .numero { font-size: 2.2rem; }
     }
   </style>
 </head>
@@ -334,6 +390,53 @@
         <span class="icona">⬇️</span> Scarica il file Excel
       </a>
     </div>
+
+    <!-- COUNTDOWN ISCRIZIONI -->
+    <div class="countdown-box">
+      <h3>⏳ Iscrizioni chiuse tra</h3>
+      <div class="countdown-grid">
+        <div class="countdown-unit">
+          <span class="numero" id="cd-giorni">00</span>
+          <span class="etichetta">Giorni</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="numero" id="cd-ore">00</span>
+          <span class="etichetta">Ore</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="numero" id="cd-minuti">00</span>
+          <span class="etichetta">Minuti</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="numero" id="cd-secondi">00</span>
+          <span class="etichetta">Secondi</span>
+        </div>
+      </div>
+      <p class="countdown-scaduto" id="cd-scaduto">🔴 Iscrizioni chiuse!</p>
+    </div>
+
+    <script>
+      const scadenza = new Date('2026-06-09T17:00:00');
+      function aggiorna() {
+        const ora = new Date();
+        const diff = scadenza - ora;
+        if (diff <= 0) {
+          document.querySelector('.countdown-grid').style.display = 'none';
+          document.getElementById('cd-scaduto').style.display = 'block';
+          return;
+        }
+        const giorni   = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const ore      = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minuti   = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const secondi  = Math.floor((diff % (1000 * 60)) / 1000);
+        document.getElementById('cd-giorni').textContent   = String(giorni).padStart(2,'0');
+        document.getElementById('cd-ore').textContent      = String(ore).padStart(2,'0');
+        document.getElementById('cd-minuti').textContent   = String(minuti).padStart(2,'0');
+        document.getElementById('cd-secondi').textContent  = String(secondi).padStart(2,'0');
+      }
+      aggiorna();
+      setInterval(aggiorna, 1000);
+    </script>
 
     <!-- NEWS -->
     <section id="news">
