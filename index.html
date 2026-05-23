@@ -356,6 +356,39 @@
     footer a { color: var(--verde-chiaro); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
+    /* FOOTER INFO ROW */
+    .footer-info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .aggiornamento-box {
+      display: inline-block;
+      background: #0d2e18;
+      border: 1px solid var(--verde-chiaro);
+      border-radius: 4px;
+      padding: 5px 12px;
+      font-size: 0.75rem;
+      color: var(--verde-chiaro);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .contatore-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 4px;
+      padding: 5px 12px;
+      font-size: 0.75rem;
+      color: var(--testo-soft);
+      letter-spacing: 0.06em;
+    }
+
     /* COUNTDOWN */
     .countdown-box {
       background: linear-gradient(135deg, #0d2e18 0%, #1a1a1a 100%);
@@ -457,7 +490,7 @@
         Quando compilate il file usate il cursore e spostatevi a destra per inserire i risultati. Il cursore vi farà fare tutta la prima fase.
         Quando compilate i sedicesimi <strong>ATTENZIONE</strong> che la striscia è più lunga di quello che vedete sul monitor.
         Se vi trovate in una posizione diversa, recuperate la posizione del file col mouse.
-        Se vi innervosite scrivete ad Infantino dicendogli <em>"Ce ne avrei messe sessanta di squadre balordo!"</em>
+        Se vi innervosite scrivete ad Infantino dicendogli <em>"Ne avrei portate sessanta di squadre balordo!"</em>
       </p>
     </div>
 
@@ -633,6 +666,16 @@
     <p>Torneo Groppoli Mondiali 26 &nbsp;·&nbsp; dal 2006 con passione &nbsp;·&nbsp;
       <a href="mailto:torneogroppoli26@gmail.com">torneogroppoli26@gmail.com</a>
     </p>
+    <div class="footer-info">
+      <span class="aggiornamento-box">🕐 Ultimo aggiornamento: 23 maggio 2026</span>
+      <span class="contatore-box">
+        👁 Visite:&nbsp;<a href="https://www.hitwebcounter.com" target="_blank" title="Contatore visite">
+          <img src="https://hitwebcounter.com/counter/counter.php?page=20697025&style=0006&nbdigits=6&type=page&initCount=0"
+               title="Contatore visite" alt="visite"
+               style="border:0; vertical-align:middle; height:18px;">
+        </a>
+      </span>
+    </div>
   </footer>
 
 </body>
