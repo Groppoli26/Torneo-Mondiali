@@ -64,6 +64,37 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
     }
+    .header-badges {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .badge-aggiornamento {
+      display: inline-block;
+      background: rgba(0,0,0,0.35);
+      border: 1px solid var(--oro);
+      border-radius: 4px;
+      padding: 5px 14px;
+      font-size: 0.78rem;
+      color: var(--oro);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .badge-contatore {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 4px;
+      padding: 5px 14px;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.06em;
+    }
 
     /* NAV */
     nav {
@@ -460,6 +491,15 @@
     <div class="header-inner">
       <h1>Torneo Groppoli <span>Mondiali 26</span></h1>
       <p>11 Giugno – 19 Luglio 2026 &nbsp;·&nbsp; USA · Canada · Messico</p>
+      <div class="header-badges">
+        <span class="badge-aggiornamento">🕐 Ultimo aggiornamento: 23 maggio 2026</span>
+        <span class="badge-contatore">
+          👁 Visite:&nbsp;<a href="https://www.hitwebcounter.com" target="_blank">
+            <img src="https://hitwebcounter.com/counter/counter.php?page=20697025&style=0006&nbdigits=6&type=page&initCount=0"
+                 alt="visite" style="border:0; vertical-align:middle; height:18px;">
+          </a>
+        </span>
+      </div>
     </div>
   </header>
 
@@ -666,16 +706,6 @@
     <p>Torneo Groppoli Mondiali 26 &nbsp;·&nbsp; dal 2006 con passione &nbsp;·&nbsp;
       <a href="mailto:torneogroppoli26@gmail.com">torneogroppoli26@gmail.com</a>
     </p>
-    <div class="footer-info">
-      <span class="aggiornamento-box">🕐 Ultimo aggiornamento: 23 maggio 2026</span>
-      <span class="contatore-box">
-        👁 Visite:&nbsp;<a href="https://www.hitwebcounter.com" target="_blank" title="Contatore visite">
-          <img src="https://hitwebcounter.com/counter/counter.php?page=20697025&style=0006&nbdigits=6&type=page&initCount=0"
-               title="Contatore visite" alt="visite"
-               style="border:0; vertical-align:middle; height:18px;">
-        </a>
-      </span>
-    </div>
   </footer>
 
 </body>
