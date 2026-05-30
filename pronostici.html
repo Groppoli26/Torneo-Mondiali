@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pronostici – Torneo Groppoli Mondiali 26</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --verde: #1a6b3a;
+      --verde-chiaro: #2d9e57;
+      --oro: #e8c547;
+      --nero: #0d0d0d;
+      --grigio: #1c1c1c;
+      --testo: #f0f0e8;
+      --testo-soft: #a8a89a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--nero);
+      color: var(--testo);
+      font-family: 'Barlow', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--verde);
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg, transparent, transparent 20px,
+        rgba(0,0,0,0.08) 20px, rgba(0,0,0,0.08) 40px
+      );
+    }
+    .header-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 32px;
+      text-align: center;
+    }
+    .header-inner h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      letter-spacing: 0.04em;
+      color: #fff;
+      text-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+      line-height: 1;
+    }
+    .header-inner h1 span { color: var(--oro); }
+    .header-inner p {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* NAV */
+    nav {
+      background: var(--grigio);
+      border-bottom: 2px solid var(--verde);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    nav ul li a {
+      display: block;
+      padding: 14px 22px;
+      color: var(--testo-soft);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      transition: color 0.2s, background 0.2s;
+    }
+    nav ul li a:hover {
+      color: var(--oro);
+      background: rgba(255,255,255,0.04);
+    }
+    nav ul li a.attiva {
+      color: var(--oro);
+      border-bottom: 2px solid var(--oro);
+    }
+    .btn-albo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      background: var(--oro);
+      color: #0d0d0d;
+      text-decoration: none;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      border-radius: 4px;
+      margin: 8px 0 8px 8px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-albo:hover {
+      background: #f5d45a;
+      transform: translateY(-2px);
+    }
+
+    /* MAIN */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+    }
+    section h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.06em;
+      color: var(--oro);
+      border-left: 4px solid var(--verde-chiaro);
+      padding-left: 14px;
+      margin-bottom: 20px;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       BANNER ATTESA
+       Per ATTIVARE la pagina:  display:flex  →  display:none
+       ══════════════════════════════════════════════════════ */
+    #banner-attesa {
+      display: flex;                 /* ← cambia in "none" per attivare */
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 24px;
+      gap: 18px;
+    }
+    #banner-attesa .lock {
+      font-size: 4rem;
+      line-height: 1;
+    }
+    #banner-attesa .etichetta-attesa {
+      display: inline-block;
+      background: var(--verde);
+      border: 1px solid var(--verde-chiaro);
+      border-radius: 4px;
+      padding: 5px 16px;
+      font-size: 0.78rem;
+      color: var(--oro);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+    }
+    #banner-attesa h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.4rem;
+      letter-spacing: 0.06em;
+      color: var(--testo);
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+    #banner-attesa p {
+      color: var(--testo-soft);
+      max-width: 500px;
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       SEZIONE PRONOSTICI
+       Per ATTIVARE la pagina:  display:none  →  display:block
+       ══════════════════════════════════════════════════════ */
+    #sezione-pronostici {
+      display: none;                 /* ← cambia in "block" per attivare */
+    }
+
+    /* TABELLA */
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid #2a2a2a;
+      border-radius: 4px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.94rem;
+    }
+    thead {
+      background: var(--grigio);
+    }
+    thead th {
+      padding: 12px 16px;
+      text-align: left;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      color: var(--testo-soft);
+      border-bottom: 2px solid var(--verde);
+    }
+    thead th:first-child { width: 3.5rem; text-align: center; }
+    thead th:last-child  { width: 9rem;   text-align: center; }
+
+    tbody tr {
+      border-bottom: 1px solid #2a2a2a;
+      transition: background 0.15s;
+    }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover      { background: rgba(255,255,255,0.03); }
+
+    tbody td {
+      padding: 11px 16px;
+      vertical-align: middle;
+    }
+    tbody td:first-child {
+      text-align: center;
+      color: var(--testo-soft);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    tbody td:last-child { text-align: center; }
+
+    .td-cognome {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.06em;
+      color: var(--testo);
+    }
+    .td-nome {
+      color: var(--testo-soft);
+    }
+
+    /* BOTTONE PDF */
+    .btn-pdf {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--verde);
+      border: 1px solid var(--verde-chiaro);
+      color: #fff;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      padding: 5px 14px;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+      white-space: nowrap;
+    }
+    .btn-pdf:hover {
+      background: var(--verde-chiaro);
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+    .btn-pdf svg {
+      width: 13px; height: 13px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* CONTATORE */
+    .counter-row {
+      margin-top: 14px;
+      font-size: 0.85rem;
+      color: var(--testo-soft);
+    }
+    .counter-row strong { color: var(--oro); }
+
+    /* FOOTER */
+    footer {
+      background: var(--grigio);
+      border-top: 2px solid var(--verde);
+      text-align: center;
+      padding: 24px;
+      font-size: 0.8rem;
+      color: var(--testo-soft);
+    }
+    footer a { color: var(--verde-chiaro); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 560px) {
+      thead th:nth-child(3) { display: none; }
+      tbody td:nth-child(3) { display: none; }
+    }
+  </style>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <h1>Torneo Groppoli <span>Mondiali 26</span></h1>
+      <p>11 Giugno – 19 Luglio 2026 &nbsp;·&nbsp; USA · Canada · Messico</p>
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="classifiche.html">Classifiche</a></li>
+      <li><a href="pronostici.html" class="attiva">Pronostici</a></li>
+      <li><a href="Regolamento_WC-2026.pdf" target="_blank" class="btn-albo">📄 Regolamento</a></li>
+      <li><a href="albo_groppoli.png" target="_blank" class="btn-albo">🏆 Albo d'Oro</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- ▸ BANNER ATTESA — visibile finché la pagina è "spenta" ◂ -->
+    <div id="banner-attesa">
+      <div class="lock">🔒</div>
+      <div class="etichetta-attesa">Iscrizioni in corso</div>
+      <h2>Pronostici non ancora disponibili</h2>
+      <p>I pronostici dei partecipanti saranno pubblicati al termine del periodo di iscrizione,<br>
+         poco prima del calcio d'inizio del Mondiale.</p>
+      <p style="font-size:0.88rem">Torna a visitare il sito dopo la chiusura delle iscrizioni!</p>
+    </div>
+
+    <!-- ▸ SEZIONE PRONOSTICI — nascosta finché la pagina è "spenta" ◂ -->
+    <div id="sezione-pronostici">
+
+      <section>
+        <h2>📋 Pronostici dei Partecipanti</h2>
+        <p style="color:var(--testo-soft); margin-bottom:20px; font-size:0.92rem">
+          Ordine alfabetico per cognome · Clicca su <em>Vedi</em> per aprire il pronostico PDF
+        </p>
+
+        <div class="table-wrap">
+          <table id="tabella-pronostici">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Cognome</th>
+                <th>Nome</th>
+                <th>Pronostico</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <!-- ═══════════════════════════════════════════════════════════
+                   RIGHE – aggiungere una riga per ogni partecipante:
+
+                   <tr>
+                     <td>N</td>
+                     <td class="td-cognome">COGNOME</td>
+                     <td class="td-nome">Nome</td>
+                     <td>
+                       <a class="btn-pdf" href="pronostici/cognome_nome.pdf" target="_blank">
+                         <svg viewBox="0 0 16 16"><path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0H4zm5.5 1.5 2 2H9.5V1.5zM4.5 8h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1zm0 2h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1zm0 2h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1 0-1z"/></svg>
+                         Vedi
+                       </a>
+                     </td>
+                   </tr>
+                   ═══════════════════════════════════════════════════════════ -->
+
+            </tbody>
+          </table>
+        </div>
+
+        <p class="counter-row">
+          Pronostici pubblicati: <strong id="n-pronostici">0</strong>
+        </p>
+      </section>
+
+    </div><!-- fine #sezione-pronostici -->
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Torneo Groppoli Mondiali 26 &nbsp;·&nbsp; dal 2006 con passione &nbsp;·&nbsp;
+      <a href="mailto:torneogroppoli26@gmail.com">torneogroppoli26@gmail.com</a>
+    </p>
+  </footer>
+
+  <script>
+    // Conta le righe e aggiorna il contatore automaticamente
+    const righe = document.querySelectorAll('#tabella-pronostici tbody tr');
+    document.getElementById('n-pronostici').textContent = righe.length;
+  </script>
+
+</body>
+</html>
