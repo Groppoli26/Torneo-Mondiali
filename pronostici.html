@@ -906,6 +906,7 @@
               </tr>
             
             
+            
             </tbody>
           </table>
         </div>
@@ -924,7 +925,7 @@
   <script>
     const params   = new URLSearchParams(window.location.search);
     const preview  = params.get('preview')  === '1';
-    const pubblica = params.get('pubblica') === '1';
+    const pubblica = true; // torneo iniziato
     const bannerAttesa  = document.getElementById('banner-attesa');
     const bannerPreview = document.getElementById('banner-preview');
     const sezioneTab    = document.getElementById('sezione-pronostici');
