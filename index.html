@@ -165,22 +165,25 @@
     /* AGGIORNAMENTI */
     .aggiornamenti-box {
       background: linear-gradient(135deg, #0d2e18 0%, #1a1a1a 100%);
-      border: 2px solid var(--verde-chiaro);
-      border-radius: 6px;
-      padding: 20px 28px;
+      border: 3px solid var(--verde-chiaro);
+      border-radius: 8px;
+      padding: 28px 36px;
       margin-bottom: 24px;
+      box-shadow: 0 0 24px rgba(45, 158, 87, 0.25);
     }
     .aggiornamenti-titolo {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.3rem;
-      letter-spacing: 0.08em;
+      font-size: 2.2rem;
+      letter-spacing: 0.1em;
       color: var(--verde-chiaro);
-      margin-bottom: 10px;
+      margin-bottom: 14px;
+      text-shadow: 0 0 12px rgba(45,158,87,0.4);
     }
     .aggiornamenti-testo {
       color: var(--testo);
-      font-size: 1.05rem;
-      line-height: 1.7;
+      font-size: 1.35rem;
+      font-weight: 600;
+      line-height: 1.75;
     }
 
     /* AVVISO ROSSO */
@@ -520,30 +523,14 @@
     <!-- AGGIORNAMENTI -->
     <div class="aggiornamenti-box">
       <div class="aggiornamenti-titolo">📢 Aggiornamenti</div>
-      <p class="aggiornamenti-testo">PROROGATO TERMINE ISCRIZIONI A MERCOLEDI' 10/06 ORE 17:00! PRONOSTICATE!</p>
+      <p class="aggiornamenti-testo">Il Mondiale è iniziato! Seguite questa sezione per tutti gli aggiornamenti del sito: classifiche, risultati e novità del torneo.</p>
     </div>
 
-    <!-- AVVISO ROSSO -->
     <div class="avviso-box">
       <div class="avviso-titolo">⚠️ ATTENZIONE!</div>
       <p class="avviso-testo">
-        Quando compilate il file usate il cursore e spostatevi a destra per inserire i risultati. Il cursore vi farà fare tutta la prima fase.
-        Quando compilate i sedicesimi <strong>ATTENZIONE</strong> che la striscia è più lunga di quello che vedete sul monitor.
-        Se vi trovate in una posizione diversa, recuperate la posizione del file col mouse.
-        Se vi innervosite scrivete ad Infantino dicendogli <em>"Ne avrei portate sessanta di squadre balordo!"</em>
+        <strong>Attenzione: se non vi si aggiorna la pagina premete CTRL + SHIFT + R</strong>
       </p>
-    </div>
-
-    <!-- DOWNLOAD BANNER -->
-    <div class="download-banner">
-      <div class="download-banner-testo">
-        <h3>📊 Tabellone Mondiali 2026</h3>
-        <p>Il file Excel ufficiale del torneo con <strong>tutti i gironi, le partite e il tabellone eliminatorio</strong>.<br>
-        Scaricalo, compilalo con i tuoi pronostici e seguilo durante tutto il torneo!</p>
-      </div>
-      <a href="WCup_2026_Groppoli.xlsx" download class="btn-download">
-        <span class="icona">⬇️</span> Scarica il file Excel
-      </a>
     </div>
 
     <!-- VIGNETTA -->
@@ -551,63 +538,12 @@
       <img src="vignetta.png" alt="Vignetta del torneo" class="vignetta-img" >
     </div>
 
-    <!-- COUNTDOWN ISCRIZIONI -->
-    <div class="countdown-box">
-      <h3>⏳ Iscrizioni chiuse tra</h3>
-      <div class="countdown-grid">
-        <div class="countdown-unit">
-          <span class="numero" id="cd-giorni">00</span>
-          <span class="etichetta">Giorni</span>
-        </div>
-        <div class="countdown-unit">
-          <span class="numero" id="cd-ore">00</span>
-          <span class="etichetta">Ore</span>
-        </div>
-        <div class="countdown-unit">
-          <span class="numero" id="cd-minuti">00</span>
-          <span class="etichetta">Minuti</span>
-        </div>
-        <div class="countdown-unit">
-          <span class="numero" id="cd-secondi">00</span>
-          <span class="etichetta">Secondi</span>
-        </div>
-      </div>
-      <p class="countdown-scaduto" id="cd-scaduto">🔴 Iscrizioni chiuse!</p>
-    </div>
-
-    <script>
-      const scadenza = new Date('2026-06-10T17:00:00');
-      function aggiorna() {
-        const ora = new Date();
-        const diff = scadenza - ora;
-        if (diff <= 0) {
-          document.querySelector('.countdown-grid').style.display = 'none';
-          document.getElementById('cd-scaduto').style.display = 'block';
-          return;
-        }
-        const giorni   = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const ore      = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minuti   = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const secondi  = Math.floor((diff % (1000 * 60)) / 1000);
-        document.getElementById('cd-giorni').textContent   = String(giorni).padStart(2,'0');
-        document.getElementById('cd-ore').textContent      = String(ore).padStart(2,'0');
-        document.getElementById('cd-minuti').textContent   = String(minuti).padStart(2,'0');
-        document.getElementById('cd-secondi').textContent  = String(secondi).padStart(2,'0');
-      }
-      aggiorna();
-      setInterval(aggiorna, 1000);
-    </script>
-
     <!-- NEWS -->
     <section id="news">
       <h2>News</h2>
       <div class="news-box">
-        <div class="data">Maggio 2026</div>
-        <p>Il sito è online! Il torneo inizia l'11 giugno 2026 con la partita inaugurale del Messico. Le iscrizioni sono aperte: scrivici via mail o sul gruppo Facebook.</p>
-      </div>
-      <div class="news-box">
-        <div class="data">In attesa</div>
-        <p>Classifiche e pronostici saranno pubblicati non appena le iscrizioni saranno chiuse e il torneo avrà inizio.</p>
+        <div class="data">Giugno 2026</div>
+        <p>Il Mondiale è iniziato! Le classifiche vengono aggiornate dopo ogni giornata di partite. Controllate regolarmente questa pagina.</p>
       </div>
     </section>
 
