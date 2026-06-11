@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classifiche – Torneo Groppoli Mondiali 26</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --verde: #1a6b3a;
+      --verde-chiaro: #2d9e57;
+      --oro: #e8c547;
+      --nero: #0d0d0d;
+      --grigio: #1c1c1c;
+      --testo: #f0f0e8;
+      --testo-soft: #a8a89a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--nero);
+      color: var(--testo);
+      font-family: 'Barlow', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--verde);
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg, transparent, transparent 20px,
+        rgba(0,0,0,0.08) 20px, rgba(0,0,0,0.08) 40px
+      );
+    }
+    .header-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 32px;
+      text-align: center;
+    }
+    .header-inner h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      letter-spacing: 0.04em;
+      color: #fff;
+      text-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+      line-height: 1;
+    }
+    .header-inner h1 span { color: var(--oro); }
+    .header-inner p {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* NAV */
+    nav {
+      background: var(--grigio);
+      border-bottom: 2px solid var(--verde);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    nav ul li a {
+      display: block;
+      padding: 14px 22px;
+      color: var(--testo-soft);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      transition: color 0.2s, background 0.2s;
+    }
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: var(--oro);
+      background: rgba(255,255,255,0.04);
+    }
+    .btn-albo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      background: var(--oro);
+      color: #0d0d0d;
+      text-decoration: none;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      border-radius: 4px;
+      margin: 8px 0 8px 8px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-albo:hover {
+      background: #f5d45a;
+      transform: translateY(-2px);
+    }
+
+    /* HERO CON SFONDO */
+    .classifiche-hero {
+      position: relative;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .classifiche-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('sfondo_wc26.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      /* Opacità ridotta tramite overlay */
+    }
+    /* Overlay scuro per far risaltare i pulsanti */
+    .classifiche-hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+    }
+    .classifiche-hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 60px 24px;
+      max-width: 700px;
+      width: 100%;
+    }
+    .classifiche-hero-content h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 7vw, 4.5rem);
+      letter-spacing: 0.08em;
+      color: var(--oro);
+      text-shadow: 2px 2px 12px rgba(0,0,0,0.8);
+      margin-bottom: 12px;
+    }
+    .classifiche-hero-content p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 48px;
+    }
+
+    /* GRIGLIA PULSANTI CLASSIFICHE */
+    .classifiche-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .btn-classifica {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 180px;
+      padding: 24px 16px;
+      background: rgba(26, 107, 58, 0.85);
+      border: 2px solid var(--oro);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--testo);
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 0.08em;
+      font-size: 1.25rem;
+      transition: background 0.2s, transform 0.18s, box-shadow 0.2s;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+    }
+    .btn-classifica:hover {
+      background: rgba(45, 158, 87, 0.92);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(232,197,71,0.3);
+    }
+    .btn-classifica .icona {
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+    .btn-classifica .label {
+      font-size: 1.15rem;
+      color: var(--oro);
+      text-align: center;
+      line-height: 1.2;
+    }
+    .btn-classifica .sublabel {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--testo-soft);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* IN ARRIVO badge */
+    .btn-classifica.presto {
+      opacity: 0.55;
+      pointer-events: none;
+      border-color: var(--testo-soft);
+    }
+    .btn-classifica.presto .label { color: var(--testo-soft); }
+    .badge-presto {
+      display: inline-block;
+      background: rgba(0,0,0,0.5);
+      border: 1px solid var(--testo-soft);
+      border-radius: 3px;
+      padding: 2px 8px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--testo-soft);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--grigio);
+      border-top: 2px solid var(--verde);
+      text-align: center;
+      padding: 24px;
+      font-size: 0.8rem;
+      color: var(--testo-soft);
+    }
+    footer a { color: var(--verde-chiaro); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 560px) {
+      .btn-classifica { width: 140px; padding: 18px 10px; font-size: 1.05rem; }
+    }
+  </style>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <h1>Torneo Groppoli <span>Mondiali 26</span></h1>
+      <p>11 Giugno – 19 Luglio 2026 &nbsp;·&nbsp; USA · Canada · Messico</p>
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="classifiche.html" class="active">Classifiche</a></li>
+      <li><a href="pronostici.html" class="btn-albo">📋 Pronostici</a></li>
+      <li><a href="Regolamento_WC-2026.pdf" target="_blank" class="btn-albo">📄 Regolamento</a></li>
+      <li><a href="albo_groppoli.png" target="_blank" class="btn-albo">🏆 Albo d'Oro</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO CON SFONDO E PULSANTI -->
+  <div class="classifiche-hero">
+    <div class="classifiche-hero-bg"></div>
+    <div class="classifiche-hero-content">
+      <h2>🏆 Classifiche</h2>
+      <p>Scarica le classifiche ufficiali del torneo</p>
+
+      <div class="classifiche-grid">
+
+        <!-- PRIMA FASE — attivo -->
+        <a href="Classifica/prima_fase.pdf" target="_blank" class="btn-classifica">
+          <span class="icona">📊</span>
+          <span class="label">Prima Fase</span>
+          <span class="sublabel">Scarica PDF</span>
+        </a>
+
+        <!-- Placeholder future fasi — commentate, da attivare -->
+        <!--
+        <a href="Classifica/seconda_fase.pdf" target="_blank" class="btn-classifica">
+          <span class="icona">📊</span>
+          <span class="label">Seconda Fase</span>
+          <span class="sublabel">Scarica PDF</span>
+        </a>
+
+        <a href="Classifica/ottavi.pdf" target="_blank" class="btn-classifica">
+          <span class="icona">📊</span>
+          <span class="label">Ottavi</span>
+          <span class="sublabel">Scarica PDF</span>
+        </a>
+
+        <a href="Classifica/quarti.pdf" target="_blank" class="btn-classifica">
+          <span class="icona">📊</span>
+          <span class="label">Quarti</span>
+          <span class="sublabel">Scarica PDF</span>
+        </a>
+
+        <a href="Classifica/semifinali.pdf" target="_blank" class="btn-classifica">
+          <span class="icona">📊</span>
+          <span class="label">Semifinali</span>
+          <span class="sublabel">Scarica PDF</span>
+        </a>
+
+        <a href="Classifica/finale.pdf" target="_blank" class="btn-classifica">
+          <span class="icona">🏆</span>
+          <span class="label">Classifica Finale</span>
+          <span class="sublabel">Scarica PDF</span>
+        </a>
+        -->
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Torneo Groppoli Mondiali 26 &nbsp;·&nbsp; dal 2006 con passione &nbsp;·&nbsp;
+      <a href="mailto:torneogroppoli26@gmail.com">torneogroppoli26@gmail.com</a>
+    </p>
+  </footer>
+
+</body>
+</html>
