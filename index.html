@@ -309,7 +309,7 @@
       letter-spacing: 0.1em;
       margin-bottom: 6px;
     }
-    .news-box p { color: var(--testo); font-size: 0.97rem; }
+    .news-box p { color: var(--testo); font-size: 1.18rem; line-height: 1.7; }
 
     /* CONTATTI ROW */
     .contatti-row {
@@ -506,7 +506,7 @@
       <h1>Torneo Groppoli <span>Mondiali 26</span></h1>
       <p>11 Giugno – 19 Luglio 2026 &nbsp;·&nbsp; USA · Canada · Messico</p>
       <div class="header-badges">
-        <span class="badge-aggiornamento">🕐 Ultimo aggiornamento: 14 giugno 2026</span>
+        <span class="badge-aggiornamento">🕐 Ultimo aggiornamento: 13 giugno 2026</span>
         <span class="badge-contatore">
           👁 Visite:&nbsp;<a href="https://www.hitwebcounter.com" target="_blank">
             <img src="https://hitwebcounter.com/counter/counter.php?page=20697025&style=0006&nbdigits=6&type=page&initCount=0"
@@ -534,7 +534,7 @@
     <!-- AGGIORNAMENTI -->
     <div class="aggiornamenti-box">
       <div class="aggiornamenti-titolo">📢 Aggiornamenti</div>
-      <p class="aggiornamenti-testo">E Triade sia!</p>
+      <p class="aggiornamenti-testo">Una tenda canadese per due!</p>
     </div>
 
     <div class="avviso-box">
@@ -555,9 +555,14 @@
 
       <!-- VIGNETTA -->
       <div class="vignetta-box">
-        <img src="vignetta.png" alt="Vignetta del torneo" class="vignetta-img">
+        <img src="vignetta.jpg" alt="Vignetta del torneo" class="vignetta-img" style="cursor:zoom-in;" onclick="document.getElementById('vignetta-modal').style.display='flex'">
       </div>
 
+    </div>
+
+    <!-- GRAFICO1 -->
+    <div class="vignetta-box" style="margin-top:24px;">
+      <img src="grafico1.jpg" alt="Grafico 1" class="vignetta-img">
     </div>
 
     <!-- LIGHTBOX GAZZA -->
@@ -565,12 +570,17 @@
       <img src="gazza.png" alt="Gazza ingrandita" style="max-width:92%;max-height:92vh;border-radius:8px;box-shadow:0 0 40px rgba(0,0,0,0.8);">
     </div>
 
+    <!-- LIGHTBOX VIGNETTA -->
+    <div id="vignetta-modal" onclick="this.style.display='none'" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:9999;align-items:center;justify-content:center;cursor:zoom-out;">
+      <img src="vignetta.jpg" alt="Vignetta ingrandita" style="max-width:92%;max-height:92vh;border-radius:8px;box-shadow:0 0 40px rgba(0,0,0,0.8);">
+    </div>
+
     <!-- NEWS -->
     <section id="news">
-      <h2>News</h2>
+      <h2 style="font-size:2rem;">News</h2>
       <div class="news-box">
         <div class="data">Giugno 2026</div>
-        <p>Passo falso del Brasile di Carletto. Stasera la Germania pronta alla goleada? Domani arrivano le strafavorite Furie Rosse! </p>
+        <p>Il Mondiale è iniziato! Le classifiche vengono aggiornate dopo ogni giornata di partite. Controllate regolarmente questa pagina.</p>
       </div>
     </section>
 
