@@ -216,6 +216,20 @@
       text-transform: uppercase;
     }
 
+    .btn-premi {
+      background: linear-gradient(135deg, #e8c547 0%, #ff8c1a 50%, #e02e6e 100%);
+      border: 2px solid #fff3cc;
+      color: #1a0a00;
+      box-shadow: 0 4px 22px rgba(232,140,26,0.55);
+    }
+    .btn-premi .label { color: #1a0a00; }
+    .btn-premi .sublabel { color: #3a1a00; }
+    .btn-premi:hover {
+      background: linear-gradient(135deg, #f5d45a 0%, #ff9c33 50%, #ec4f87 100%);
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 8px 30px rgba(255,140,26,0.65);
+    }
+
     /* IN ARRIVO badge */
     .btn-classifica.presto {
       opacity: 0.55;
@@ -291,6 +305,13 @@
           <span class="sublabel">Scarica PDF</span>
         </a>
 
+        <!-- PREMI DEL TORNEO -->
+        <a href="#" onclick="document.getElementById('premi-modal').style.display='flex'; return false;" class="btn-classifica btn-premi">
+          <span class="icona">🎁</span>
+          <span class="label">I Premi del Torneo</span>
+          <span class="sublabel">Scopri di più</span>
+        </a>
+
         <!-- Placeholder future fasi — commentate, da attivare -->
         <!--
         <a href="Classifica/seconda_fase.pdf" target="_blank" class="btn-classifica">
@@ -326,6 +347,11 @@
 
       </div>
     </div>
+  </div>
+
+  <!-- LIGHTBOX PREMI -->
+  <div id="premi-modal" onclick="this.style.display='none'" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:9999;align-items:center;justify-content:center;cursor:zoom-out;">
+    <img src="premi.png" alt="Premi del torneo" style="max-width:92%;max-height:92vh;border-radius:8px;box-shadow:0 0 40px rgba(0,0,0,0.8);">
   </div>
 
   <!-- FOOTER -->
