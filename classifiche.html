@@ -239,15 +239,29 @@
       box-shadow: 0 8px 28px rgba(232,197,71,0.3);
     }
     .btn-fase-quarti {
-      background: linear-gradient(135deg, #7a4200 0%, #e07800 100%);
-      border: 2px solid #ffd080;
-      box-shadow: 0 4px 22px rgba(224,120,0,0.5);
+      background: rgba(26, 107, 58, 0.85);
+      border: 2px solid var(--oro);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.5);
     }
-    .btn-fase-quarti .label { color: #fff3cc; }
+    .btn-fase-quarti .label { color: var(--oro); }
     .btn-fase-quarti:hover {
-      background: linear-gradient(135deg, #995200 0%, #f58c00 100%);
+      background: rgba(45, 158, 87, 0.92);
       transform: translateY(-4px);
-      box-shadow: 0 8px 28px rgba(224,120,0,0.7);
+      box-shadow: 0 8px 28px rgba(232,197,71,0.3);
+    }
+    .btn-fase-finale {
+      background: linear-gradient(135deg, #4a0080 0%, #9b00e8 60%, #cc44ff 100%);
+      border: 2px solid #e8aaff;
+      box-shadow: 0 4px 28px rgba(155,0,232,0.6);
+      width: 240px;
+      padding: 28px 20px;
+    }
+    .btn-fase-finale .label { color: #f5ddff; font-size: 1.4rem; }
+    .btn-fase-finale .icona { font-size: 2.8rem; }
+    .btn-fase-finale:hover {
+      background: linear-gradient(135deg, #5e00a0 0%, #b200ff 60%, #dd66ff 100%);
+      transform: translateY(-5px) scale(1.04);
+      box-shadow: 0 10px 36px rgba(155,0,232,0.8);
     }
 
     .btn-premi {
@@ -332,7 +346,17 @@
 
       <div class="classifiche-grid">
 
-        <!-- QUARTI + BONUS SEMIFINALI (riga arancione in cima) -->
+        <!-- FASE FINALE (pulsante unico viola in cima) -->
+        <a href="Classifica/fase_finale.pdf" target="_blank" class="btn-classifica btn-fase-finale">
+          <span class="icona">🏆</span>
+          <span class="label">Fase Finale</span>
+          <span class="sublabel">Scarica PDF</span>
+        </a>
+
+        <!-- SEPARATORE -->
+        <div style="width:100%; height:4px;"></div>
+
+        <!-- QUARTI + BONUS SEMIFINALI (riga verde) -->
         <a href="Classifica/quarti.pdf" target="_blank" class="btn-classifica btn-fase-quarti">
           <span class="icona">🏅</span>
           <span class="label">Quarti</span>
