@@ -147,6 +147,18 @@
       background: #f5d45a;
       transform: translateY(-2px);
     }
+    /* ALBO D'ORO speciale */
+    a.btn-albo[href="albo_groppoli.png"] {
+      background: linear-gradient(135deg, #cc2200 0%, #ff4400 60%, #ff7733 100%);
+      color: #fff;
+      border: 2px solid #ffaa88;
+      box-shadow: 0 0 14px rgba(255,68,0,0.5);
+      font-size: 1.15rem;
+    }
+    a.btn-albo[href="albo_groppoli.png"]:hover {
+      background: linear-gradient(135deg, #e03300 0%, #ff5500 60%, #ff8844 100%);
+      box-shadow: 0 0 22px rgba(255,68,0,0.8);
+    }
 
     /* MAIN */
     main {
@@ -167,28 +179,126 @@
 
     /* AGGIORNAMENTI */
     .aggiornamenti-box {
-      background: linear-gradient(135deg, #0d2e18 0%, #1a1a1a 100%);
-      border: 3px solid var(--verde-chiaro);
-      border-radius: 8px;
+      background: linear-gradient(135deg, #0a1a2e 0%, #1a1a2e 100%);
+      border: 3px solid var(--oro);
+      border-radius: 12px;
+      padding: 36px 40px;
+      margin-bottom: 24px;
+      box-shadow: 0 0 32px rgba(232,197,71,0.3);
+      text-align: center;
+    }
+    .aggiornamenti-titolo { display: none; }
+    .aggiornamenti-testo {
+      font-family: 'Barlow', sans-serif;
+      color: var(--testo);
+      font-size: 1.35rem;
+      font-weight: 400;
+      line-height: 1.8;
+      text-align: center;
+    }
+    .aggiornamenti-testo .highlight {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      color: var(--oro);
+      display: block;
+      margin-bottom: 12px;
+      letter-spacing: 0.06em;
+      text-shadow: 0 0 18px rgba(232,197,71,0.6);
+      line-height: 1.3;
+    }
+    /* BOX RISULTATI */
+    .risultati-box {
+      background: linear-gradient(135deg, #1a0a00 0%, #2a1500 100%);
+      border: 2px solid var(--oro);
+      border-radius: 10px;
       padding: 28px 36px;
       margin-bottom: 24px;
-      box-shadow: 0 0 24px rgba(45, 158, 87, 0.25);
+      text-align: center;
+      box-shadow: 0 0 20px rgba(232,197,71,0.2);
     }
-    .aggiornamenti-titolo {
+    .risultati-titolo {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.8rem;
+      font-size: 1.5rem;
+      color: var(--oro);
       letter-spacing: 0.1em;
-      color: var(--verde-chiaro);
-      margin-bottom: 14px;
-      text-align: center;
-      text-shadow: 0 0 12px rgba(45,158,87,0.4);
+      margin-bottom: 20px;
+      text-transform: uppercase;
     }
-    .aggiornamenti-testo {
-      color: var(--testo);
-      font-size: 1.9rem;
+    .risultati-riga {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .risultati-pos {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      color: var(--oro);
+      min-width: 2rem;
+      text-align: right;
+    }
+    .risultati-nome {
+      font-family: 'Barlow', sans-serif;
+      font-size: 1.4rem;
       font-weight: 700;
-      line-height: 1.6;
+      color: var(--testo);
+    }
+    .risultati-speciale {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid #4a3000;
+      font-family: 'Barlow', sans-serif;
+      font-size: 1.1rem;
+      color: var(--oro);
+    }
+    /* TIMER */
+    .timer-box {
+      background: linear-gradient(135deg, #0d0d1a 0%, #1a1a2e 100%);
+      border: 2px solid var(--verde-chiaro);
+      border-radius: 10px;
+      padding: 28px 36px;
+      margin-bottom: 24px;
       text-align: center;
+      box-shadow: 0 0 20px rgba(45,158,87,0.2);
+    }
+    .timer-titolo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      color: var(--verde-chiaro);
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+    .timer-contatori {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .timer-unita {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .timer-numero {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.2rem;
+      color: var(--oro);
+      line-height: 1;
+      text-shadow: 0 0 16px rgba(232,197,71,0.5);
+      min-width: 80px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 8px;
+      padding: 8px 12px;
+    }
+    .timer-label {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--testo-soft);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
     }
 
     /* AVVISO ROSSO */
@@ -540,7 +650,7 @@
       <h1>Torneo Groppoli <span>Mondiali 26</span></h1>
       <p>11 Giugno – 19 Luglio 2026 &nbsp;·&nbsp; USA · Canada · Messico</p>
       <div class="header-badges">
-        <span class="badge-aggiornamento">🕐 Ultimo aggiornamento: 19 luglio 2026</span>
+        <span class="badge-aggiornamento">🕐 Ultimo aggiornamento: 13 luglio 2026</span>
         <span class="badge-contatore">
           👁 Visite:&nbsp;<a href="https://www.hitwebcounter.com" target="_blank">
             <img src="https://hitwebcounter.com/counter/counter.php?page=20697025&style=0006&nbdigits=6&type=page&initCount=0"
@@ -565,45 +675,96 @@
   <!-- MAIN -->
   <main>
 
-    <!-- AGGIORNAMENTI -->
+    <!-- ANNUNCIO VINCITORE -->
     <div class="aggiornamenti-box">
-      <div class="aggiornamenti-titolo">📢 Aggiornamenti</div>
-      <p class="aggiornamenti-testo"> Come delle comete, grazie all'abbuffata inglese, Tarantola Lorenzo conquista la leadership del Torneo, seguito da Moricone Sebastiano i quali però, fidandosi di CR7, han voluto fare i "portoghesi" e conseguentemente stasera il loro ambizioso traguardo diverrà effimero con la disputa della Finale, che interessa invece il terzo in classifica, il roccioso Rozzia Massimo. Via quindi alla Partitona: sarà flamenco o il tango di Stra Damiano?  </p>
+      <p class="aggiornamenti-testo">
+        <span class="highlight">La Spagna e le sei pere degli Albionici consegnano a Rozzia Massimo il Torneo Groppoli 2026!</span>
+        Finalmente il Presidente del Torneo entra nell'Albo d'Oro!<br>
+        Al posto d'onore, per un soffio, Lorenzini Matteo.<br>
+        Terzo Vincenzi Fabio.<br><br>
+        È stato un torneo effervescente e ricco di colpi di scena con i risultati in bilico fino all'ultimo minuto.<br><br>
+        <em style="color:var(--oro);">Grazie a tutti per l'attenzione e appuntamento agli Europei del 2028!</em>
+      </p>
     </div>
 
-    <!-- MENZIONARIO -->
-    <div class="menzionario-box">
-      <div class="menzionario-titolo">🎖️ Menzionario</div>
-      <p class="menzionario-testo"> Naturalmente la standing ovation va a Tarantola Lorenzo, unico ad aver previsto la vittoria albionica nella finalina del terzo posto!   </p>
-    </div>
-
-    <!-- NEWS -->
-    <section id="news">
-      <h2 style="font-size:2rem;">News</h2>
-      <div class="news-box">
-        <div class="data">Giugno 2026</div>
-        <p> Questa sera il paggio Infantino deturperà la sacralità della finale della Coppa del Mondo, trasformandola in uno spettacolo indecoroso con venticinque minuti di intervallo per far cantare quattro inani, richiesta pretesa da chi sappiamo. Come sia potuto accadere è soltanto riferibile alla piaggeria! </p>
+    <!-- RISULTATI DEFINITIVI -->
+    <div class="risultati-box">
+      <div class="risultati-titolo">🏆 Risultati definitivi — Torneo Groppoli Mondiali 2026</div>
+      <div class="risultati-riga">
+        <span class="risultati-pos">🥇</span>
+        <span class="risultati-nome">Rozzia Massimo</span>
       </div>
-    </section>
+      <div class="risultati-riga">
+        <span class="risultati-pos">🥈</span>
+        <span class="risultati-nome">Lorenzini Matteo</span>
+      </div>
+      <div class="risultati-riga">
+        <span class="risultati-pos">🥉</span>
+        <span class="risultati-nome">Vincenzi Fabio</span>
+      </div>
+      <div class="risultati-speciale">
+        ⭐ Vincitore Prima Fase — Menichinelli Alessio
+      </div>
+    </div>
+
+    <!-- TIMER EUROPEI 2028 -->
+    <div class="timer-box">
+      <div class="timer-titolo">⚽ Ci vediamo a Cardiff tra…</div>
+      <div class="timer-contatori">
+        <div class="timer-unita">
+          <span class="timer-numero" id="t-giorni">--</span>
+          <span class="timer-label">Giorni</span>
+        </div>
+        <div class="timer-unita">
+          <span class="timer-numero" id="t-ore">--</span>
+          <span class="timer-label">Ore</span>
+        </div>
+        <div class="timer-unita">
+          <span class="timer-numero" id="t-minuti">--</span>
+          <span class="timer-label">Minuti</span>
+        </div>
+        <div class="timer-unita">
+          <span class="timer-numero" id="t-secondi">--</span>
+          <span class="timer-label">Secondi</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function() {
+        var target = new Date('2028-06-09T21:00:00');
+        function aggiorna() {
+          var ora = new Date();
+          var diff = target - ora;
+          if (diff <= 0) {
+            document.getElementById('t-giorni').textContent = '00';
+            document.getElementById('t-ore').textContent = '00';
+            document.getElementById('t-minuti').textContent = '00';
+            document.getElementById('t-secondi').textContent = '00';
+            return;
+          }
+          var g = Math.floor(diff / 86400000);
+          var h = Math.floor((diff % 86400000) / 3600000);
+          var m = Math.floor((diff % 3600000) / 60000);
+          var s = Math.floor((diff % 60000) / 1000);
+          document.getElementById('t-giorni').textContent = String(g).padStart(2,'0');
+          document.getElementById('t-ore').textContent = String(h).padStart(2,'0');
+          document.getElementById('t-minuti').textContent = String(m).padStart(2,'0');
+          document.getElementById('t-secondi').textContent = String(s).padStart(2,'0');
+        }
+        aggiorna();
+        setInterval(aggiorna, 1000);
+      })();
+    </script>
 
     <!-- VIGNETTA (piena larghezza, hover zoom) -->
     <div class="vignetta-box" style="margin-bottom:24px;">
       <img src="vignetta.png" alt="" class="vignetta-img vignetta-hover" onclick="document.getElementById('vignetta-modal').style.display='flex'">
     </div>
 
-    <!-- GRAFICO1 -->
-    <div class="vignetta-box" style="margin-top:0;">
-      <img src="grafico1.jpg" alt="Grafico 1" class="vignetta-img" style="cursor:zoom-in;" onclick="document.getElementById('grafico1-modal').style.display='flex'">
-    </div>
-
     <!-- LIGHTBOX VIGNETTA -->
     <div id="vignetta-modal" onclick="this.style.display='none'" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:9999;align-items:center;justify-content:center;cursor:zoom-out;">
       <img src="vignetta.png" alt="Vignetta ingrandita" style="max-width:92%;max-height:92vh;border-radius:8px;box-shadow:0 0 40px rgba(0,0,0,0.8);">
-    </div>
-
-    <!-- LIGHTBOX GRAFICO1 -->
-    <div id="grafico1-modal" onclick="this.style.display='none'" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:9999;align-items:center;justify-content:center;cursor:zoom-out;">
-      <img src="grafico1.jpg" alt="Grafico ingrandito" style="max-width:92%;max-height:92vh;border-radius:8px;box-shadow:0 0 40px rgba(0,0,0,0.8);">
     </div>
 
     <!-- LINK UTILI -->
